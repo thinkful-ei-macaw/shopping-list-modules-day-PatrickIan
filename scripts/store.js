@@ -15,14 +15,16 @@ export default {
 
 ;
  function findById(id) {
-   return store.items.find(id)
+   
+   const result =  items.find(search => items.id ===id);
+   return result;
  }
 
  function addItems(name) {
    try {
-     validateName(name);
-    let item = create(name);
-    (item.create).push(this.items);
+     item.validateName(name);
+    let thing = item.create(name);
+    (this.items).push(thing);
    } catch(error) {
      console.log(`Cannot add item: ${error.message}`)
    }
@@ -35,7 +37,7 @@ export default {
 
  function findAndUpdateName(id, newName) {
    try {
-     validateName(newName);
+     item.validateName(newName);
      findById(id);
    } catch {
     console.log(`Cannot update name: ${error.message}`);
@@ -43,5 +45,6 @@ export default {
  }
 
  function findAndDelete(id) {
-   this.items.filter(findById(id));
+   let checkedId = id
+   this.items.filter(findById(checkedId));
  }
