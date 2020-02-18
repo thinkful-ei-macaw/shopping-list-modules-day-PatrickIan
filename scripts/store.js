@@ -10,7 +10,8 @@ export default {
   findById,
   findAndToggleChecked,
   findAndDelete,
-  findAndUpdateName
+  findAndUpdateName,
+  toggleCheckedFilter,
 }
 
 ;
@@ -50,4 +51,8 @@ export default {
    let newArr =  this.items.filter(item => item !== correctId);
    this.items = newArr;
    console.log(newArr)
+ }
+
+ function toggleCheckedFilter() {
+   this.hideCheckedItems = !this.hideCheckedItems;
  }
