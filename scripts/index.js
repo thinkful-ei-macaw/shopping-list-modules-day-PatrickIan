@@ -3,8 +3,8 @@ import store from './store.js';
 import item from './item.js';
 
 const main = function () {
-  shoppingList.bindEventListeners();
-  shoppingList.render();
+shoppingList.bindEventListeners();
+shoppingList.render();
 };
 
 
