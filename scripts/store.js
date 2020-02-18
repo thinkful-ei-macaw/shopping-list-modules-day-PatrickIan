@@ -5,8 +5,15 @@ import item from './item.js';
 
 export default {
   items,
-  hideCheckedItems
-};
+  hideCheckedItems,
+  addItems,
+  findById,
+  findAndToggleChecked,
+  findAndDelete,
+  findAndUpdateName
+}
+
+;
  function findById(id) {
    return store.items.find(id)
  }
@@ -15,12 +22,26 @@ export default {
    try {
      validateName(name);
     let item = create(name);
-    //(item.create).push(this.items);
+    (item.create).push(this.items);
    } catch(error) {
      console.log(`Cannot add item: ${error.message}`)
    }
  }
 
- function findAndToggleChecked(id, newName) {
+ function findAndToggleChecked(id) {
+   let foundItem = this.findById(id);
+   foundItem.checked = !foundItem.checked;
+ }
 
+ function findAndUpdateName(id, newName) {
+   try {
+     validateName(newName);
+     findById(id);
+   } catch {
+    console.log(`Cannot update name: ${error.message}`);
+   }
+ }
+
+ function findAndDelete(id) {
+   this.items.filter(findById(id));
  }
