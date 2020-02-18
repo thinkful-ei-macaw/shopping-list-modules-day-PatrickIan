@@ -14,9 +14,9 @@ export default {
 }
 
 ;
- function findById(id) {
+ function findById(ident) {
    
-   const result =  items.find(search => items.id ===id);
+   const result =  items.find( element => element.id === ident);
    return result;
  }
 
@@ -46,5 +46,8 @@ export default {
 
  function findAndDelete(id) {
    let checkedId = id
-   this.items.filter(findById(checkedId));
+   let correctId = findById(checkedId);
+   let newArr =  this.items.filter(item => item !== correctId);
+   this.items = newArr;
+   console.log(newArr)
  }
