@@ -38,7 +38,7 @@ export default {
  function findAndUpdateName(id, newName) {
    try {
      item.validateName(newName);
-     findById(id);
+     findById(id).name = newName;
    } catch {
     console.log(`Cannot update name: ${error.message}`);
    }
